@@ -10,36 +10,23 @@
 </head>
 <body>
 
-  <div class="cantent">
+  <div class="content">
 
     <div class="row">
       <div class="col-12">
         <h1>To Do list</h1>
         <form>
-          <input type="text" name="task" id="task"/>
-          <input type="button" name="" value="AddTask" onclick="addTask()"/>
-          
+          <input type="text" name="task" id="task" placeholder="Adicionar item"/>
+          <input type="button" name="" onclick="addTask();" value="Adicionar"/>        
         </form>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12">
-        <div class="todolistbox">
-          <ul>
-            <li>item 1 <button>X</button></li>
-            <li>item 2 <button>X</button></li>
-            <li>item 3 <button>X</button></li>
-            <li>item 4 <button>X</button></li>
-            <li>item 5 <button>X</button></li>
-            <li>item 6 <button>X</button></li>
-            <li>item 7 <button>X</button></li>
-            <li>item 8 <button>X</button></li>
-            <li>item 9 <button>X</button></li>
-            <li>item 10 <button>X</button></li>
-            <li>item 11 <button>X</button></li>
-            <li>item 12 <button>X</button></li>
-            <li>item 13 <button>X</button></li>
+        <div class="to-do-list-box">
+          <ul id="myList">
+             
           </ul>
         </div>
       </div>
@@ -55,17 +42,30 @@
 
     addTask = function(){
       if(document.getElementById("task").value != ""){
-        item   = document.getElementById("task").value;
 
-        itemId = ul.clildElementCount;
+          item   = document.getElementById("task");
 
-        li     = createItemEl(itemId)
+          itemId = ul.childElementCount;
+
+          li     = createItemEl(item.value,itemId);
+
+          li.appendChild(createRemoveTaskBtn(itemId));
+
+          ul.appendChild(li);
       }
 
     }
 
-    removeTask = function(){
+    removeTask = function(itemId){
 
+      for( i = 0 ; i < ul.children.length ; i++){
+
+          if (ul.children[i].getAttribute("index") == itemId){
+            
+            ul.children[i].remove();
+
+          }
+      }
     }
 
     createItemEl = function(itemValue, itemId){
@@ -73,7 +73,7 @@
 
       li.setAttribute("index", itemId);
 
-      li.appendClild(document.createTextNode(itemValue));
+      li.appendChild(document.createTextNode(itemValue));
 
       return li;
     }
@@ -81,7 +81,11 @@
     createRemoveTaskBtn = function(itemId){
       let btn = document.createElement("button");
 
-      btn.setAttribute("onclick", "removeTask("++")");
+      btn.setAttribute("onclick", "removeTask("+itemId+")");
+
+      btn.innerHTML ="X";
+
+      return btn;
     }
   </script>
 </body>
