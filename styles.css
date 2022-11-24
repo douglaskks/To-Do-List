@@ -1,0 +1,41 @@
+body{
+	background-image: url(images/background.jpg);
+	background-size: cover;
+	padding: 15rem;
+}
+
+.content{
+	display: block;
+}
+
+.row{
+	display: flex;
+	width: 100%;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.form-completo{
+	height: 100px;
+}
+
+#task{
+	height: 2rem;
+	width: 40rem;
+	border-radius: 90px;
+}
+h1{
+	display: flex;
+	justify-content: center;
+}
+
+#bottonClick{
+	height: 2.5rem;
+	width: 5rem;
+	border-radius: 90px;
+	border-color: white;
+	background-color: black;
+	color: white;
+}
