@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ptt-br">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="events.js"></script>
   <link rel="stylesheet" href="styles.css" />
-  <title>To Do List</title>
+  <title>Lista To Do</title>
 </head>
 <body>
 
@@ -14,10 +14,10 @@
 
     <div class="row">
       <div class="col-12">
-        <h1>To Do list</h1>
-        <form>
+        <h1>Lista de a fazeres</h1>
+        <form class="form-completo">
           <input type="text" name="task" id="task" placeholder="Adicionar item"/>
-          <input type="button" name="" onclick="addTask();" value="Adicionar"/>        
+          <input type="button" name="" id="bottonClick" onclick="addTask();" value="Adicionar"/>        
         </form>
       </div>
     </div>
@@ -81,9 +81,9 @@
     createRemoveTaskBtn = function(itemId){
       let btn = document.createElement("button");
 
-      btn.setAttribute("onclick", "removeTask("+itemId+")");
+      btn.setAttribute("onclick", "removeTask(" +itemId+ ")");
 
-      btn.innerHTML ="X";
+      btn.innerHTML =" X ";
 
       return btn;
     }
